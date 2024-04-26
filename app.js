@@ -7,7 +7,7 @@ const app = express();
 //rest of packages
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-const fileUpload = require('express-fileupload');
+//const fileUpload = require('express-fileupload');
 
 //database
 const connectDB = require('./db/connect');

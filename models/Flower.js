@@ -17,9 +17,6 @@ const FlowerSchema = new mongoose.Schema({
         required: [true, 'Please provide description'],
         maxlength: [2000, 'Description can not be more than 2000 characters']
     },
-    image: {
-        type: String,
-    },
     color: {
         type: String,
         required: [true, 'Please provide color']

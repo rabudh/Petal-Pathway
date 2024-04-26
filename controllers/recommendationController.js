@@ -11,8 +11,8 @@ const getRecommendations = async (req, res) => {
         feeling: feeling
     });
 
-    if(flowers.length < 1){
-        throw new CustomError.NotFoundError(`No flower with that criteria`);
+    if(!flowers){
+        throw new CustomError.NotFoundError(`No flower with id: ${flowerId}`);
     }
     res.status(StatusCodes.OK).json({flowers});
 };

@@ -6,7 +6,7 @@ const {attachCookiesToResponse, createTokenUser} = require('../utils')
 const register = async (req, res) => {
   const {email, name, password, street, city, state, zipcode} = req.body;
 
-  const emailAlreadyExists = await User.findOne({email})
+  const emailAlreadyExists = await User.findOne({email})  //findOne Mongoo
     if(emailAlreadyExists){
         throw new CustomError.BadRequestError('Email already used')
     }
@@ -14,7 +14,7 @@ const register = async (req, res) => {
     const isFirstAccount = await User.countDocuments({}) == 0;
     const role = isFirstAccount? 'admin' : 'user';
 
-    const user = await User.create({name,email,password, role, street, city, state, zipcode});
+    const user = await User.create({name,email,password, role, street, city, state, zipcode}); //create mongoo
     const tokenUser = createTokenUser(user);
     attachCookiesToResponse({res,user:tokenUser});
     res.status(StatusCodes.CREATED).json({user:tokenUser});

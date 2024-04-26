@@ -34,7 +34,7 @@ const createOrder = async (req, res) => {
             name, price, flower:_id
         };
         //add item to order
-        prderItems = [...orderItems, singleOrderItem]
+        orderItems = [...orderItems, singleOrderItem]
 
         //calculate subtotal
         subtotal += item.amount * price;
